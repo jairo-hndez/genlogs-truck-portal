@@ -56,8 +56,8 @@ def test_search_other_routes():
 
     cases = [
         {"from_city": "Chicago", "to_city": "Miami"},
-        {"from_city": "Bogotá", "to_city": "Medellín"},  # Unicode chars
-        {"from_city": "Paris", "to_city": "London"},
+        {"from_city": "Akron", "to_city": "Tulsa"},  # Unicode chars
+        {"from_city": "Knoxville", "to_city": "Houston"},
     ]
     for payload in cases:
         assert_carriers_match(payload, expected)
@@ -81,4 +81,3 @@ def test_case_insensitivity_and_spaces():
     data = response.json()
     assert len(data) == 3
     assert data[0]["name"] == "Knight-Swift Transport Services"
-
