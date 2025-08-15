@@ -15,7 +15,6 @@ This project is designed as a **React frontend** consuming a **FastAPI backend**
 - [Running the Project](#running-the-project)
 - [Environment Variables](#environment-variables)
 - [Testing](#testing)
-- [Future Improvements](#future-improvements)
 
 ---
 
