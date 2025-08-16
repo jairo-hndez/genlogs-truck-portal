@@ -1,0 +1,146 @@
+/* City Search Form Component Styles */
+.container {
+  margin-bottom: var(--space-8);
+}
+
+.card {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.header {
+  text-align: center;
+}
+
+.title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-2);
+}
+
+.description {
+  color: var(--color-gray-600);
+  font-size: var(--font-size-base);
+  margin: 0;
+}
+
+.inputs {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--space-4);
+  align-items: end;
+}
+
+.inputGroup {
+  position: relative;
+}
+
+.swapContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--space-6); /* Align with input height */
+}
+
+.swapButton {
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-gray-200);
+  background-color: white;
+  transition: all var(--transition-fast);
+}
+
+.swapButton:hover:not(:disabled) {
+  border-color: var(--color-primary-500);
+  background-color: var(--color-primary-50);
+  transform: rotate(180deg);
+}
+
+.swapIcon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-gray-600);
+  transition: color var(--transition-fast);
+}
+
+.swapButton:hover:not(:disabled) .swapIcon {
+  color: var(--color-primary-600);
+}
+
+.errorContainer {
+  overflow: hidden;
+}
+
+.error {
+  background-color: var(--color-error-50);
+  color: var(--color-error-700);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-error-200);
+  font-size: var(--font-size-sm);
+  text-align: center;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+.searchButton {
+  min-width: 200px;
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  .inputs {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .swapContainer {
+    order: 2;
+    padding-top: 0;
+  }
+  
+  .swapButton {
+    transform: rotate(90deg);
+  }
+  
+  .swapButton:hover:not(:disabled) {
+    transform: rotate(270deg);
+  }
+  
+  .title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .searchButton {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    margin: 0 var(--space-4);
+  }
+  
+  .title {
+    font-size: var(--font-size-lg);
+  }
+  
+  .description {
+    font-size: var(--font-size-sm);
+  }
+}

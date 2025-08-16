@@ -1,0 +1,229 @@
+/* Carrier List Component Styles */
+.container {
+  margin-bottom: var(--space-8);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray-900);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.subtitle {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-600);
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
+}
+
+/* Carrier Card */
+.carrierCard {
+  transition: all var(--transition-base);
+  border: 1px solid var(--color-gray-200);
+}
+
+.carrierCard:hover {
+  border-color: var(--color-primary-300);
+  box-shadow: var(--shadow-lg);
+}
+
+.carrierHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.carrierInfo {
+  flex: 1;
+}
+
+.carrierName {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-900);
+  margin: 0 0 var(--space-2) 0;
+  line-height: var(--line-height-snug);
+}
+
+.carrierMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.trucksCount {
+  font-size: var(--font-size-sm);
+  color: var(--color-primary-600);
+  background-color: var(--color-primary-50);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-medium);
+}
+
+.carrierBadge {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-success-50);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.truckIcon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-success-600);
+}
+
+.carrierStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-gray-100);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.statLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.statValue {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-900);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Empty State */
+.emptyState {
+  margin-bottom: var(--space-8);
+}
+
+.emptyCard {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.emptyContent {
+  padding: var(--space-8);
+}
+
+.emptyIcon {
+  width: 64px;
+  height: 64px;
+  color: var(--color-gray-400);
+  margin: 0 auto var(--space-4);
+}
+
+.emptyTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-700);
+  margin: 0 0 var(--space-3) 0;
+}
+
+.emptyDescription {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-500);
+  margin: 0;
+  line-height: var(--line-height-relaxed);
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .header {
+    margin-bottom: var(--space-6);
+  }
+  
+  .title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .carrierCard {
+    margin: 0 var(--space-2);
+  }
+  
+  .carrierHeader {
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: flex-start;
+  }
+  
+  .carrierBadge {
+    align-self: flex-end;
+  }
+  
+  .carrierStats {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .emptyContent {
+    padding: var(--space-6);
+  }
+  
+  .emptyIcon {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .emptyTitle {
+    font-size: var(--font-size-lg);
+  }
+  
+  .emptyDescription {
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .carrierCard {
+    margin: 0;
+  }
+  
+  .carrierName {
+    font-size: var(--font-size-base);
+  }
+  
+  .trucksCount {
+    font-size: var(--font-size-xs);
+  }
+  
+  .carrierBadge {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .truckIcon {
+    width: 16px;
+    height: 16px;
+  }
+}

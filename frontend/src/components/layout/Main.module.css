@@ -1,0 +1,13 @@
+/* Main Component Styles */
+.main {
+  flex: 1;
+  padding: var(--space-8) 0;
+  min-height: calc(100vh - 200px); /* Account for header height */
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  .main {
+    padding: var(--space-6) 0;
+  }
+}

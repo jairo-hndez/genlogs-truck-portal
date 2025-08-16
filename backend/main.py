@@ -30,6 +30,23 @@ class Carrier(BaseModel):
     name: str
     trucks_per_day: int
 
+def normalize_city(city: str) -> str:
+    """
+    Normalize city name to a canonical name.
+    """
+    city = city.strip().lower()
+    city_mapping = {
+        "new york": ["new york", "ny", "nueva york", "nyc"],
+        "washington dc": ["washington dc", "washington", "dc"],
+        "san francisco": ["san francisco", "sf", "san fran"],
+        "los angeles": ["los angeles", "la", "la la land"]
+    }
+    
+    for normalized_name, aliases in city_mapping.items():
+        if any(alias in city for alias in aliases):
+            return normalized_name
+
+    return city
 
 @app.post("/search", response_model=List[Carrier])
 async def search_carriers(request: SearchRequest) -> List[Carrier]:
@@ -43,22 +60,8 @@ async def search_carriers(request: SearchRequest) -> List[Carrier]:
         List of carriers operating on the route.
     """
 
-    # Map all variations of city names to a single canonical name
-    city_aliases = {
-        "new york": "new york",
-        "nueva york": "new york",
-        "ny": "new york",
-        "washington dc": "washington dc",
-        "san francisco": "san francisco",
-        "sf": "san francisco",
-        "los angeles": "los angeles",
-        "la": "los angeles",
-    }
-
-    # Canonicalize input cities
-    print(request.from_city.strip().lower())
-    from_city = city_aliases.get(' '.join(request.from_city.strip().lower().split()))
-    to_city = city_aliases.get(' '.join(request.to_city.strip().lower().split()))
+    from_city = normalize_city(request.from_city)
+    to_city = normalize_city(request.to_city)
     print(from_city, to_city)
 
     # Define carriers for known routes
@@ -74,7 +77,6 @@ async def search_carriers(request: SearchRequest) -> List[Carrier]:
             Carrier(name="Landstar Systems", trucks_per_day=2),
         ],
     }
-
     # Return carriers for matching route, or default carriers
     return routes.get(
         (from_city, to_city),
@@ -83,7 +85,6 @@ async def search_carriers(request: SearchRequest) -> List[Carrier]:
             Carrier(name="FedEx Corp", trucks_per_day=9),
         ]
     )
-
 
 
 @app.get("/")
